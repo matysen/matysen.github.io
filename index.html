@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Maty Sène - Page Académique & Recherche</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #2e86c1;
+            --accent-color: #d4ac0d;
+            --bg-color: #f8f9fa;
+            --text-color: #2c3e50;
+            --light-bg: #ffffff;
+            --border-color: #e5e7eb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header / Profile Section */
+        header {
+            background: var(--light-bg);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            border: 4px solid var(--secondary-color);
+        }
+
+        .profile-details {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .profile-details h1 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+        }
+
+        .profile-details h2 {
+            font-size: 1.2rem;
+            color: #566573;
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .contact-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.3s;
+        }
+
+        .contact-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Main Content Layout */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Card Section */
+        .card {
+            background: var(--light-bg);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Timeline Items (Education & Experience) */
+        .item {
+            margin-bottom: 18px;
+        }
+
+        .item:last-child {
+            margin-bottom: 0;
+        }
+
+        .item-title {
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .item-sub {
+            color: var(--secondary-color);
+            font-size: 0.95rem;
+        }
+
+        .item-date {
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+
+        .item-desc {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* Skills badges */
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .badge {
+            background-color: #ebf5fb;
+            color: var(--primary-color);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.85rem;
+        }
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 4px solid var(--secondary-color);
+            overflow: hidden; /* Empêche l'image de dépasser du cercle */
+            flex-shrink: 0;   /* Évite la déformation de la zone sur petit écran */
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ajuste l'image au cercle sans la déformer */
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Profil Header -->
+    <header>
+        <div class="profile-img">
+            <img src="profil.jpeg" alt="MS">
+        </div>
+        <div class="profile-details">
+            <h1>Dr. Maty Sène</h1>
+            <h2>PhD in Computer Science | Automatic Generation of Assessment Topics</h2>
+            <p style="font-size: 0.95rem; color: #555;">
+                Tutrice et enseignante-chercheure à l'Université Numérique Cheikh Hamidou Kane (UNCHK), spécialisée en Intelligence Artificielle et génération automatique de contenus pédagogiques.
+            </p>
+            <div class="contact-links">
+                <a href="mailto:matyl.sene@unchk.edu.sn"><i class="fas fa-envelope"></i> Email</a>
+                <a href="https://www.jems.sn" target="_blank"><i class="fas fa-globe"></i> JEMS Platform</a>
+                <a href="https://linkedin.com/in/matysene" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/matysen" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://scholar.google.com" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content Grid -->
+    <div class="content-grid">
+        
+        <!-- Left Main Column -->
+        <main>
+            <!-- About / Research Focus -->
+            <section class="card">
+                <h3><i class="fas fa-microscope"></i> Axes de Recherche & Profil</h3>
+                <p class="item-desc">
+                    Mes travaux de recherche s'articulent autour du traitement automatique du langage naturel (<strong>NLP</strong>), de la génération augmentée par récupération (<strong>RAG</strong>) et du <strong>Fine-Tuning</strong> de modèles d'IA. Je me focalise particulièrement sur la conception et le développement d'aides à l'évaluation pédagogique dans l'enseignement supérieur.
+                </p>
+            </section>
+
+            <!-- Projects & Achievements -->
+            <section class="card">
+                <h3><i class="fas fa-laptop-code"></i> Projets de Recherche & Réalisations</h3>
+                <div class="item">
+                    <div class="item-title">JEMS - Automatic Generation of Exam Topics</div>
+                    <div class="item-sub">Plateforme de création automatique de sujets d'examen</div>
+                    <p class="item-desc">
+                        Issue de mes travaux de doctorat, JEMS permet d'automatiser la création d'évaluations adaptées aux institutions d'enseignement supérieur.
+                    </p>
+                    <a href="http://www.jems.sn" target="_blank" class="btn"><i class="fas fa-external-link-alt"></i> Visiter JEMS</a>
+                </div>
+                <hr style="margin: 15px 0; border: 0; border-top: 1px solid var(--border-color);">
+                <div class="item">
+                    <div class="item-title">Exam Archiving System</div>
+                    <p class="item-desc">Application complète dédiée à la gestion, la structuration et l'archivage sécurisé des épreuves d'examens universitaires.</p>
+                </div>
+            </section>
+
+            <!-- Scientific Activities & Conferences -->
+            <section class="card">
+                <h3><i class="fas fa-paper-plane"></i> Activités Scientifiques & Conférences</h3>
+                <div class="item">
+                    <div class="item-title">AFRICOMM 2023</div>
+                    <div class="item-sub">EAI Internet Infrastructure and Services in Africa</div>
+                </div>
+                <div class="item">
+                    <div class="item-title">ICEMS 2020</div>
+                    <div class="item-sub">International Conference on Examination Management Systems</div>
+                </div>
+                <div class="item">
+                    <div class="item-title">Africa DigitalEdu (1st Edition)</div>
+                    <div class="item-sub">Challenges of Digital Higher Education</div>
+                </div>
+                <div class="item">
+                    <div class="item-title">NUMED 2018</div>
+                    <div class="item-sub">International Symposium on Digital Technology in Higher Education</div>
+                </div>
+            </section>
+
+            <!-- Professional Experience -->
+            <section class="card">
+                <h3><i class="fas fa-briefcase"></i> Parcours Professionnel</h3>
+                <div class="item">
+                    <div class="item-title">Tutrice & Enseignante Associée</div>
+                    <div class="item-sub">Université Numérique Cheikh Hamidou Kane (UNCHK)</div>
+                    <div class="item-date">2016 - Présent</div>
+                    <p class="item-desc">Encadrement des sessions de tutorat, évaluation, enseignement du JavaScript, des Systèmes de Gestion de Contenu (CMS) et des Systèmes de Stockage.</p>
+                </div>
+                <div class="item">
+                    <div class="item-title">Enseignante Vacataire</div>
+                    <div class="item-sub">ISEP Thiès & Université Cheikh Ahmadou Bamba (Mbao)</div>
+                    <div class="item-date">2013 - 2016</div>
+                    <p class="item-desc">Enseignement des bases de données (MySQL, Access, Oracle), bureautique, programmation orientée objet (Python), HTML/CSS et systèmes d'information.</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside>
+            <!-- Education -->
+            <section class="card">
+                <h3><i class="fas fa-user-graduate"></i> Formation</h3>
+                <div class="item">
+                    <div class="item-title">Doctorat en Informatique</div>
+                    <div class="item-sub">Université Iba Der Thiam de Thiès</div>
+                    <div class="item-date">2025</div>
+                </div>
+                <div class="item">
+                    <div class="item-title">Master in Mathematical Sciences</div>
+                    <div class="item-sub">AIMS Senegal</div>
+                    <div class="item-date">2021 - 2022</div>
+                </div>
+                <div class="item">
+                    <div class="item-title">Master II Reseaux & Télécoms</div>
+                    <div class="item-sub">Université de Thiès</div>
+                    <div class="item-date">2014 - 2015</div>
+                </div>
+                <div class="item">
+                    <div class="item-title">Licence & DEUG Informatique / Mathématiques</div>
+                    <div class="item-sub">Université Gaston Berger (UGB), Saint-Louis</div>
+                    <div class="item-date">2008 - 2012</div>
+                </div>
+            </section>
+
+            <!-- Skills -->
+            <section class="card">
+                <h3><i class="fas fa-tools"></i> Compétences</h3>
+                <p><strong>IA & NLP:</strong></p>
+                <div class="badge-list" style="margin-bottom: 12px;">
+                    <span class="badge">Machine Learning</span>
+                    <span class="badge">NLP</span>
+                    <span class="badge">RAG</span>
+                    <span class="badge">Fine-Tuning</span>
+                </div>
+                <p><strong>Programmation:</strong></p>
+                <div class="badge-list" style="margin-bottom: 12px;">
+                    <span class="badge">Python</span>
+                    <span class="badge">Java</span>
+                    <span class="badge">C/C++</span>
+                    <span class="badge">PHP</span>
+                    <span class="badge">HTML/CSS/JS</span>
+                </div>
+                <p><strong>Bases de données:</strong></p>
+                <div class="badge-list">
+                    <span class="badge">Oracle</span>
+                    <span class="badge">MySQL</span>
+                    <span class="badge">PL/SQL</span>
+                    <span class="badge">UML / Merise</span>
+                </div>
+            </section>
+
+            <!-- Languages -->
+            <section class="card">
+                <h3><i class="fas fa-language"></i> Langues</h3>
+                <p><strong>Français :</strong> Excellent</p>
+                <p><strong>Anglais :</strong> Bonne compréhension écrite & orale</p>
+                <p><strong>Wolof :</strong> Langue maternelle</p>
+            </section>
+        </aside>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Dr. Maty Sène. Hébergé sur GitHub Pages (matysen.github.io)</p>
+    </footer>
+</div>
+
+</body>
+</html>
