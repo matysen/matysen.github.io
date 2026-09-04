@@ -52,14 +52,16 @@
             width: 160px;
             height: 160px;
             border-radius: 50%;
-            background-color: var(--primary-color);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            font-weight: bold;
             border: 4px solid var(--secondary-color);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .profile-details {
@@ -99,6 +101,15 @@
 
         .contact-links a:hover {
             color: var(--secondary-color);
+        }
+
+        /* Style spécifique pour ORCID */
+        .contact-links a.orcid-link {
+            color: #a6ce39;
+        }
+
+        .contact-links a.orcid-link:hover {
+            color: #8cb82b;
         }
 
         /* Main Content Layout */
@@ -203,21 +214,6 @@
             color: #7f8c8d;
             font-size: 0.85rem;
         }
-        .profile-img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            border: 4px solid var(--secondary-color);
-            overflow: hidden; /* Empêche l'image de dépasser du cercle */
-            flex-shrink: 0;   /* Évite la déformation de la zone sur petit écran */
-        }
-
-        .profile-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Ajuste l'image au cercle sans la déformer */
-            display: block;
-        }
     </style>
 </head>
 <body>
@@ -237,9 +233,10 @@
             <div class="contact-links">
                 <a href="mailto:matyl.sene@unchk.edu.sn"><i class="fas fa-envelope"></i> Email</a>
                 <a href="https://www.jems.sn" target="_blank"><i class="fas fa-globe"></i> JEMS Platform</a>
+                <a href="https://orcid.org/0009-0003-5311-5127" target="_blank" class="orcid-link"><i class="fab fa-orcid"></i> ORCID</a>
+                <a href="https://scholar.google.com/citations?user=fHl1jbkAAAAJ&hl=fr" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
                 <a href="https://linkedin.com/in/matysene" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 <a href="https://github.com/matysen" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://scholar.google.com/citations?authuser=1&user=fHl1jbkAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
             </div>
         </div>
     </header>
