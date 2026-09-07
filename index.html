@@ -3,395 +3,979 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Maty Sène - Page Académique & Recherche</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <title>Dre. Maty SENE | Informatique, IA & NLP</title>
+
+    <meta name="description"
+          content="Page académique de Dre. Maty SENE, docteure en informatique, enseignante-chercheure spécialisée en Intelligence Artificielle, NLP et génération automatique de contenus pédagogiques.">
+
+    <meta name="author" content="Dre. Maty SENE">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Flag Icons CSS (pour afficher les drapeaux proprement) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"/>
+
     <style>
         :root {
-            --primary-color: #1a5276;
-            --secondary-color: #2e86c1;
-            --accent-color: #d4ac0d;
-            --bg-color: #f8f9fa;
-            --text-color: #2c3e50;
-            --light-bg: #ffffff;
-            --border-color: #e5e7eb;
+            --primary: #173f5f;
+            --secondary: #20639b;
+            --accent: #d4a017;
+            --light: #f5f7fa;
+            --white: #ffffff;
+            --text: #263238;
+            --muted: #667085;
+            --border: #e4e7ec;
+            --shadow: 0 8px 25px rgba(0,0,0,0.07);
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--light);
+            color: var(--text);
+            line-height: 1.7;
+            top: 0 !important;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
         }
 
         .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px;
+            width: min(1150px, 92%);
+            margin: auto;
         }
 
-        /* Header / Profile Section */
-        header {
-            background: var(--light-bg);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            margin-bottom: 25px;
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            background: var(--primary);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+
+        .nav-container {
+            min-height: 65px;
             display: flex;
-            flex-wrap: wrap;
-            gap: 25px;
             align-items: center;
+            justify-content: space-between;
+            gap: 20px;
         }
 
-        .profile-img {
-            width: 160px;
-            height: 160px;
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: .5px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            font-size: .92rem;
+            transition: .3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* =========================
+           CUSTOM LANG SWITCHER (STYLE CAPTURE)
+        ========================= */
+
+        .lang-switcher {
+            display: inline-flex;
+            align-items: center;
+            background: #ffffff;
+            padding: 4px 10px;
+            border-radius: 4px;
+            border: 1px solid #dcdcdc;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            font-size: 14px;
+            color: #000000;
+        }
+
+        .lang-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            user-select: none;
+            transition: opacity 0.2s;
+        }
+
+        .lang-btn:hover {
+            opacity: 0.7;
+        }
+
+        .lang-btn .fi {
+            font-size: 16px;
+            border-radius: 2px;
+            box-shadow: 0 0 1px rgba(0,0,0,0.5);
+        }
+
+        .lang-divider {
+            margin: 0 8px;
+            color: #000000;
+            font-weight: normal;
+        }
+
+        /* Masquer le widget Google officiel */
+        #google_translate_element {
+            display: none;
+        }
+
+        .goog-te-banner-frame, 
+        .goog-te-balloon-frame,
+        .skiptranslate {
+            display: none !important;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            background: linear-gradient(135deg, #173f5f 0%, #20639b 100%);
+            color: white;
+            padding: 70px 0;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 190px 1fr;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
-            border: 4px solid var(--secondary-color);
             overflow: hidden;
-            flex-shrink: 0;
+            border: 5px solid white;
+            box-shadow: 0 8px 25px rgba(0,0,0,.25);
         }
 
-        .profile-img img {
+        .profile-photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
         }
 
-        .profile-details {
-            flex: 1;
-            min-width: 280px;
+        .hero h1 {
+            font-size: 2.7rem;
+            margin-bottom: 8px;
         }
 
-        .profile-details h1 {
-            color: var(--primary-color);
-            font-size: 2.2rem;
-            margin-bottom: 5px;
-        }
-
-        .profile-details h2 {
-            font-size: 1.2rem;
-            color: #566573;
+        .hero h2 {
+            font-size: 1.25rem;
             font-weight: 400;
-            margin-bottom: 15px;
+            opacity: .95;
+            margin-bottom: 18px;
         }
 
-        .contact-links {
+        .hero-description {
+            max-width: 800px;
+            font-size: 1.02rem;
+            opacity: .95;
+        }
+
+        .hero-buttons {
+            margin-top: 25px;
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 10px;
+            gap: 12px;
         }
 
-        .contact-links a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-size: 0.95rem;
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 17px;
+            border-radius: 6px;
+            font-size: .9rem;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            opacity: .9;
+        }
+
+        .btn-light {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-light:hover {
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           SOCIAL / CONTACT
+        ========================= */
+
+        .social-links {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .social-links a {
+            font-size: .92rem;
             display: flex;
             align-items: center;
-            gap: 6px;
-            transition: color 0.3s;
+            gap: 7px;
+            opacity: .95;
+            transition: .3s;
         }
 
-        .contact-links a:hover {
-            color: var(--secondary-color);
+        .social-links a:hover {
+            color: var(--accent);
         }
 
-        /* Style spécifique pour ORCID */
-        .contact-links a.orcid-link {
-            color: #a6ce39;
+        /* =========================
+           MAIN
+        ========================= */
+
+        main {
+            padding: 45px 0;
         }
 
-        .contact-links a.orcid-link:hover {
-            color: #8cb82b;
+        .section {
+            margin-bottom: 35px;
         }
 
-        /* Main Content Layout */
-        .content-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 25px;
-        }
-
-        @media (max-width: 768px) {
-            .content-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Card Section */
-        .card {
-            background: var(--light-bg);
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            margin-bottom: 25px;
-        }
-
-        .card h3 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 8px;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
+        .section-title {
+            color: var(--primary);
+            font-size: 1.55rem;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        /* Timeline Items (Education & Experience) */
-        .item {
-            margin-bottom: 18px;
+        .section-title i {
+            color: var(--accent);
         }
 
-        .item:last-child {
+        .card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-text {
+            font-size: 1rem;
+            color: #475467;
+        }
+
+        /* =========================
+           RESEARCH
+        ========================= */
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .research-card {
+            padding: 22px;
+            background: white;
+            border-left: 4px solid var(--secondary);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .research-card i {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .research-card h3 {
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .research-card p {
+            color: var(--muted);
+            font-size: .93rem;
+        }
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .project {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .project:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .project h3 {
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .project-subtitle {
+            color: var(--secondary);
+            font-size: .92rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .project p {
+            color: var(--muted);
+            font-size: .94rem;
+        }
+
+        /* =========================
+           PUBLICATIONS
+        ========================= */
+
+        .publication {
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .publication:last-child {
+            border-bottom: none;
+        }
+
+        .publication-title {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .publication p {
+            color: var(--muted);
+            font-size: .92rem;
+            margin-top: 5px;
+        }
+
+        /* =========================
+           TWO COLUMNS
+        ========================= */
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+        }
+
+        /* =========================
+           TIMELINE
+        ========================= */
+
+        .timeline-item {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 25px;
+            border-left: 2px solid var(--secondary);
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -7px;
+            top: 3px;
+            width: 11px;
+            height: 11px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .timeline-title {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .timeline-place {
+            color: var(--secondary);
+            font-size: .93rem;
+        }
+
+        .timeline-date {
+            color: var(--muted);
+            font-size: .83rem;
+        }
+
+        .timeline-description {
+            margin-top: 5px;
+            color: #667085;
+            font-size: .91rem;
+        }
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skill-group {
+            margin-bottom: 20px;
+        }
+
+        .skill-group:last-child {
             margin-bottom: 0;
         }
 
-        .item-title {
-            font-weight: bold;
-            color: var(--text-color);
+        .skill-group h4 {
+            color: var(--primary);
+            margin-bottom: 8px;
         }
 
-        .item-sub {
-            color: var(--secondary-color);
-            font-size: 0.95rem;
-        }
-
-        .item-date {
-            font-size: 0.85rem;
-            color: #7f8c8d;
-            margin-bottom: 5px;
-        }
-
-        .item-desc {
-            font-size: 0.95rem;
-            color: #555;
-        }
-
-        /* Skills badges */
-        .badge-list {
+        .badges {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 7px;
         }
 
         .badge {
-            background-color: #ebf5fb;
-            color: var(--primary-color);
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            font-weight: 500;
+            background: #edf5fb;
+            color: var(--primary);
+            padding: 5px 11px;
+            border-radius: 20px;
+            font-size: .8rem;
+            font-weight: 600;
         }
 
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
+        /* =========================
+           LANGUAGES
+        ========================= */
+
+        .language {
+            display: flex;
+            justify-content: space-between;
+            padding: 9px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .language:last-child {
+            border-bottom: none;
+        }
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            background: var(--primary);
             color: white;
-            padding: 8px 16px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: background 0.3s;
-            margin-top: 10px;
+            text-align: center;
+            padding: 35px 25px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
         }
 
-        .btn:hover {
-            background-color: var(--secondary-color);
+        .cta h2 {
+            margin-bottom: 8px;
         }
+
+        .cta p {
+            opacity: .9;
+            margin-bottom: 20px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
+            background: #102d44;
+            color: #d9e2ec;
             text-align: center;
-            padding: 20px;
-            color: #7f8c8d;
-            font-size: 0.85rem;
+            padding: 30px 20px;
+            font-size: .85rem;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 850px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-photo {
+                margin: auto;
+            }
+
+            .hero-buttons,
+            .social-links {
+                justify-content: center;
+            }
+
+            .research-grid,
+            .two-columns {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <!-- Profil Header -->
-    <div id="google_translate_element" style="margin-bottom: 10px;"></div>
-    <header>
-        <div class="profile-img">
-            <img src="profil.jpeg" alt="MS">
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+    <div class="container nav-container">
+        <div class="logo">
+            Dre. Maty <span>SENE</span>
         </div>
-        <div class="profile-details">
-            <h1>Dr. Maty Sène</h1>
-            <h2>PhD in Computer Science | Automatic Generation of Assessment Topics</h2>
-            <p style="font-size: 0.95rem; color: #555;">
-                Tutrice et enseignante-chercheure à l'Université Numérique Cheikh Hamidou Kane (UNCHK), spécialisée en Intelligence Artificielle et génération automatique de contenus pédagogiques.
+
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#profil">Profil</a></li>
+                <li><a href="#recherche">Recherche</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#parcours">Parcours</a></li>
+                <li><a href="#competences">Compétences</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <!-- Switcher Personnalisé Identique à la Capture -->
+            <div class="lang-switcher">
+                <span class="lang-btn" onclick="translateLanguage('fr')">
+                    <span class="fi fi-fr"></span> FR
+                </span>
+                <span class="lang-divider">|</span>
+                <span class="lang-btn" onclick="translateLanguage('en')">
+                    <span class="fi fi-gb"></span> EN
+                </span>
+            </div>
+
+            <!-- Widget Google Translate Masqué (Technique) -->
+            <div id="google_translate_element"></div>
+        </div>
+    </div>
+</nav>
+
+<!-- =========================
+     HERO
+========================= -->
+
+<header class="hero" id="accueil">
+    <div class="container hero-content">
+        <div class="profile-photo">
+            <img src="profil.jpeg" alt="Dr. Maty Sène">
+        </div>
+
+        <div>
+            <h1>Dre. Maty SENE</h1>
+            <h2>Docteure en Informatique · Intelligence Artificielle · NLP</h2>
+
+            <p class="hero-description">
+                Tutrice et enseignante-chercheure à l'Université Numérique
+                Cheikh Hamidou Kane (UNCHK), mes travaux portent principalement
+                sur l'Intelligence Artificielle, le traitement automatique du
+                langage naturel (NLP) et la génération automatique de contenus
+                pédagogiques pour l'enseignement supérieur.
             </p>
-            <div class="contact-links">
-                <a href="mailto:matyl.sene@unchk.edu.sn"><i class="fas fa-envelope"></i> Email</a>
-                <a href="https://www.jems.sn" target="_blank"><i class="fas fa-globe"></i> JEMS Platform</a>
-                <a href="https://orcid.org/0009-0003-5311-5127" target="_blank" class="orcid-link"><i class="fab fa-orcid"></i> ORCID</a>
-                <a href="https://scholar.google.com/citations?user=fHl1jbkAAAAJ&hl=fr" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
-                <a href="https://linkedin.com/in/matysene" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="https://github.com/matysen" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+
+            <div class="hero-buttons">
+                <a href="https://www.jems.sn" target="_blank" class="btn btn-primary">
+                    <i class="fas fa-globe"></i> Découvrir JEMS
+                </a>
+
+                <a href="https://scholar.google.com/citations?user=fHl1jbkAAAAJ&hl=fr" target="_blank" class="btn btn-light">
+                    <i class="fas fa-graduation-cap"></i> Google Scholar
+                </a>
+            </div>
+
+            <div class="social-links">
+                <a href="mailto:matyl.sene@unchk.edu.sn">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+
+                <a href="https://orcid.org/0009-0003-5311-5127" target="_blank">
+                    <i class="fab fa-orcid"></i> ORCID
+                </a>
+
+                <a href="https://linkedin.com/in/matysene" target="_blank">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+
+                <a href="https://github.com/matysen" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
-    <!-- Content Grid -->
-    <div class="content-grid">
-        
-        <!-- Left Main Column -->
-        <main>
-            <!-- About / Research Focus -->
-            <section class="card">
-                <h3><i class="fas fa-microscope"></i> Axes de Recherche & Profil</h3>
-                <p class="item-desc">
-                    Mes travaux de recherche s'articulent autour du traitement automatique du langage naturel (<strong>NLP</strong>), de la génération augmentée par récupération (<strong>RAG</strong>) et du <strong>Fine-Tuning</strong> de modèles d'IA. Je me focalise particulièrement sur la conception et le développement d'aides à l'évaluation pédagogique dans l'enseignement supérieur.
+<!-- =========================
+     MAIN
+========================= -->
+
+<main>
+    <div class="container">
+
+        <!-- PROFIL -->
+        <section class="section" id="profil">
+            <h2 class="section-title">
+                <i class="fas fa-user"></i> Profil
+            </h2>
+
+            <div class="card">
+                <p class="about-text">
+                    Je suis <strong>Dre. Maty SENE</strong>, docteure en informatique
+                    spécialisée en Intelligence Artificielle et traitement automatique
+                    du langage naturel. Je suis tutrice et enseignante-chercheure à
+                    l'Université Numérique Cheikh Hamidou Kane (UNCHK).
+                    <br><br>
+                    Mes travaux de recherche s'inscrivent à l'intersection de
+                    l'Intelligence Artificielle, du NLP et de l'éducation numérique.
+                    Je m'intéresse particulièrement à la conception de solutions
+                    intelligentes capables d'accompagner les enseignants dans la
+                    création, la structuration et la gestion des évaluations
+                    pédagogiques.
+                    <br><br>
+                    Ma thèse de doctorat porte sur la
+                    <strong>génération automatique de sujets d'évaluation pour les
+                    établissements d'enseignement supérieur</strong>.
+                    Cette recherche a notamment conduit au développement de
+                    <strong>JEMS</strong>, une plateforme dédiée à la génération
+                    automatique d'évaluations.
                 </p>
-            </section>
+            </div>
+        </section>
 
-            <!-- Projects & Achievements -->
-            <section class="card">
-                <h3><i class="fas fa-laptop-code"></i> Projets de Recherche & Réalisations</h3>
-                <div class="item">
-                    <div class="item-title">JEMS - Automatic Generation of Exam Topics</div>
-                    <div class="item-sub">Plateforme de création automatique de sujets d'examen</div>
-                    <p class="item-desc">
-                        Issue de mes travaux de doctorat, JEMS permet d'automatiser la création d'évaluations adaptées aux institutions d'enseignement supérieur.
+        <!-- RECHERCHE -->
+        <section class="section" id="recherche">
+            <h2 class="section-title">
+                <i class="fas fa-microscope"></i> Recherche
+            </h2>
+
+            <div class="research-grid">
+                <div class="research-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Intelligence Artificielle</h3>
+                    <p>Conception et développement de solutions basées sur l'apprentissage automatique et les modèles d'IA.</p>
+                </div>
+
+                <div class="research-card">
+                    <i class="fas fa-language"></i>
+                    <h3>NLP</h3>
+                    <p>Traitement automatique du langage naturel, représentation sémantique et exploitation de modèles de langage.</p>
+                </div>
+
+                <div class="research-card">
+                    <i class="fas fa-database"></i>
+                    <h3>RAG</h3>
+                    <p>Génération augmentée par récupération pour améliorer la pertinence et la contextualisation des contenus générés.</p>
+                </div>
+
+                <div class="research-card">
+                    <i class="fas fa-file-circle-check"></i>
+                    <h3>Évaluation pédagogique</h3>
+                    <p>Automatisation de la création et de la gestion des sujets d'évaluation dans l'enseignement supérieur.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJETS -->
+        <section class="section" id="projets">
+            <h2 class="section-title">
+                <i class="fas fa-laptop-code"></i> Projets & Réalisations
+            </h2>
+
+            <div class="card">
+                <div class="project">
+                    <h3><i class="fas fa-robot"></i> JEMS</h3>
+                    <div class="project-subtitle">Plateforme de génération automatique de sujets d'évaluation</div>
+                    <p>
+                        Issue de mes travaux de doctorat, JEMS vise à faciliter la
+                        conception d'évaluations adaptées aux besoins des établissements
+                        d'enseignement supérieur grâce à l'Intelligence Artificielle,
+                        au NLP et aux techniques de génération de contenu.
                     </p>
-                    <a href="http://www.jems.sn" target="_blank" class="btn"><i class="fas fa-external-link-alt"></i> Visiter JEMS</a>
+                    <a href="https://www.jems.sn" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> Visiter JEMS
+                    </a>
                 </div>
-                <hr style="margin: 15px 0; border: 0; border-top: 1px solid var(--border-color);">
-                <div class="item">
-                    <div class="item-title">Exam Archiving System</div>
-                    <p class="item-desc">Application complète dédiée à la gestion, la structuration et l'archivage sécurisé des épreuves d'examens universitaires.</p>
-                </div>
-            </section>
 
-            <!-- Scientific Activities & Conferences -->
-            <section class="card">
-                <h3><i class="fas fa-paper-plane"></i> Activités Scientifiques & Conférences</h3>
-                <div class="item">
-                    <div class="item-title">AFRICOMM 2023</div>
-                    <div class="item-sub">EAI Internet Infrastructure and Services in Africa</div>
+                <div class="project">
+                    <h3><i class="fas fa-archive"></i> Exam Archiving System</h3>
+                    <div class="project-subtitle">Gestion et archivage des épreuves universitaires</div>
+                    <p>Application destinée à la gestion, la structuration et l'archivage des épreuves d'examens universitaires.</p>
                 </div>
-                <div class="item">
-                    <div class="item-title">ICEMS 2020</div>
-                    <div class="item-sub">International Conference on Examination Management Systems</div>
-                </div>
-                <div class="item">
-                    <div class="item-title">Africa DigitalEdu (1st Edition)</div>
-                    <div class="item-sub">Challenges of Digital Higher Education</div>
-                </div>
-                <div class="item">
-                    <div class="item-title">NUMED 2018</div>
-                    <div class="item-sub">International Symposium on Digital Technology in Higher Education</div>
-                </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Professional Experience -->
-            <section class="card">
-                <h3><i class="fas fa-briefcase"></i> Parcours Professionnel</h3>
-                <div class="item">
-                    <div class="item-title">Tutrice & Enseignante Associée</div>
-                    <div class="item-sub">Université Numérique Cheikh Hamidou Kane (UNCHK)</div>
-                    <div class="item-date">2016 - Présent</div>
-                    <p class="item-desc">Encadrement des sessions de tutorat, évaluation, enseignement du JavaScript, des Systèmes de Gestion de Contenu (CMS) et des Systèmes de Stockage.</p>
-                </div>
-                <div class="item">
-                    <div class="item-title">Enseignante Vacataire</div>
-                    <div class="item-sub">ISEP Thiès & Université Cheikh Ahmadou Bamba (Mbao)</div>
-                    <div class="item-date">2013 - 2016</div>
-                    <p class="item-desc">Enseignement des bases de données (MySQL, Access, Oracle), bureautique, programmation orientée objet (Python), HTML/CSS et systèmes d'information.</p>
-                </div>
-            </section>
-        </main>
+        <!-- PUBLICATIONS / ACTIVITES -->
+        <section class="section">
+            <h2 class="section-title">
+                <i class="fas fa-book-open"></i> Activités scientifiques
+            </h2>
 
-        <!-- Right Sidebar -->
-        <aside>
-            <!-- Education -->
-            <section class="card">
-                <h3><i class="fas fa-user-graduate"></i> Formation</h3>
-                <div class="item">
-                    <div class="item-title">Doctorat en Informatique</div>
-                    <div class="item-sub">Université Iba Der Thiam de Thiès</div>
-                    <div class="item-date">2025</div>
+            <div class="card">
+                <div class="publication">
+                    <div class="publication-title">AFRICOMM 2023</div>
+                    <p>EAI International Conference on Africa Internet Infrastructure and Services.</p>
                 </div>
-                <div class="item">
-                    <div class="item-title">Master in Mathematical Sciences</div>
-                    <div class="item-sub">AIMS Senegal</div>
-                    <div class="item-date">2021 - 2022</div>
-                </div>
-                <div class="item">
-                    <div class="item-title">Master II Reseaux & Télécoms</div>
-                    <div class="item-sub">Université de Thiès</div>
-                    <div class="item-date">2014 - 2015</div>
-                </div>
-                <div class="item">
-                    <div class="item-title">Licence & DEUG Informatique / Mathématiques</div>
-                    <div class="item-sub">Université Gaston Berger (UGB), Saint-Louis</div>
-                    <div class="item-date">2008 - 2012</div>
-                </div>
-            </section>
 
-            <!-- Skills -->
-            <section class="card">
-                <h3><i class="fas fa-tools"></i> Compétences</h3>
-                <p><strong>IA & NLP:</strong></p>
-                <div class="badge-list" style="margin-bottom: 12px;">
-                    <span class="badge">Machine Learning</span>
-                    <span class="badge">NLP</span>
-                    <span class="badge">RAG</span>
-                    <span class="badge">Fine-Tuning</span>
+                <div class="publication">
+                    <div class="publication-title">ICEMS 2020</div>
+                    <p>International Conference on Examination Management Systems.</p>
                 </div>
-                <p><strong>Programmation:</strong></p>
-                <div class="badge-list" style="margin-bottom: 12px;">
-                    <span class="badge">Python</span>
-                    <span class="badge">Java</span>
-                    <span class="badge">C/C++</span>
-                    <span class="badge">PHP</span>
-                    <span class="badge">HTML/CSS/JS</span>
-                </div>
-                <p><strong>Bases de données:</strong></p>
-                <div class="badge-list">
-                    <span class="badge">Oracle</span>
-                    <span class="badge">MySQL</span>
-                    <span class="badge">PL/SQL</span>
-                    <span class="badge">UML / Merise</span>
-                </div>
-            </section>
 
-            <!-- Languages -->
-            <section class="card">
-                <h3><i class="fas fa-language"></i> Langues</h3>
-                <p><strong>Français :</strong> Excellent</p>
-                <p><strong>Anglais :</strong> Bonne compréhension écrite & orale</p>
-                <p><strong>Wolof :</strong> Langue maternelle</p>
-            </section>
-        </aside>
+                <div class="publication">
+                    <div class="publication-title">Africa DigitalEdu – 1st Edition</div>
+                    <p>Challenges of Digital Higher Education.</p>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-title">NUMED 2018</div>
+                    <p>International Symposium on Digital Technology in Higher Education.</p>
+                </div>
+
+                <br>
+
+                <a href="https://scholar.google.com/citations?user=fHl1jbkAAAAJ&hl=fr" target="_blank" class="btn btn-primary">
+                    <i class="fas fa-graduation-cap"></i> Voir mes publications sur Google Scholar
+                </a>
+            </div>
+        </section>
+
+        <!-- PARCOURS -->
+        <section class="section" id="parcours">
+            <h2 class="section-title">
+                <i class="fas fa-briefcase"></i> Parcours académique & professionnel
+            </h2>
+
+            <div class="two-columns">
+                <!-- EXPERIENCE -->
+                <div class="card">
+                    <h3 style="color: var(--primary); margin-bottom: 25px;">Expérience professionnelle</h3>
+
+                    <div class="timeline-item">
+                        <div class="timeline-title">Tutrice & Enseignante Associée</div>
+                        <div class="timeline-place">Université Numérique Cheikh Hamidou Kane (UNCHK)</div>
+                        <div class="timeline-date">2016 – Présent</div>
+                        <div class="timeline-description">Encadrement des sessions de tutorat, enseignement, évaluation et accompagnement des étudiants.</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-title">Enseignante Vacataire</div>
+                        <div class="timeline-place">ISEP Thiès & Université Cheikh Ahmadou Bamba</div>
+                        <div class="timeline-date">2013 – 2016</div>
+                        <div class="timeline-description">Enseignement des bases de données, de la bureautique, de la programmation orientée objet, du HTML/CSS et des systèmes d'information.</div>
+                    </div>
+                </div>
+
+                <!-- FORMATION -->
+                <div class="card">
+                    <h3 style="color: var(--primary); margin-bottom: 25px;">Formation</h3>
+
+                    <div class="timeline-item">
+                        <div class="timeline-title">Doctorat en Informatique</div>
+                        <div class="timeline-place">Université Iba Der Thiam de Thiès</div>
+                        <div class="timeline-date">2025</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-title">Master in Mathematical Sciences</div>
+                        <div class="timeline-place">AIMS Senegal</div>
+                        <div class="timeline-date">2021 – 2022</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-title">Master 2 Réseaux & Télécommunications</div>
+                        <div class="timeline-place">Université de Thiès</div>
+                        <div class="timeline-date">2014 – 2015</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-title">Licence & DEUG Informatique / Mathématiques</div>
+                        <div class="timeline-place">Université Gaston Berger (UGB), Saint-Louis</div>
+                        <div class="timeline-date">2008 – 2012</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPETENCES -->
+        <section class="section" id="competences">
+            <h2 class="section-title">
+                <i class="fas fa-code"></i> Compétences
+            </h2>
+
+            <div class="two-columns">
+                <div class="card">
+                    <div class="skill-group">
+                        <h4><i class="fas fa-brain"></i> Intelligence Artificielle & NLP</h4>
+                        <div class="badges">
+                            <span class="badge">Machine Learning</span>
+                            <span class="badge">NLP</span>
+                            <span class="badge">RAG</span>
+                            <span class="badge">Fine-Tuning</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <h4><i class="fas fa-terminal"></i> Programmation</h4>
+                        <div class="badges">
+                            <span class="badge">Python</span>
+                            <span class="badge">Java</span>
+                            <span class="badge">C/C++</span>
+                            <span class="badge">PHP</span>
+                            <span class="badge">HTML</span>
+                            <span class="badge">CSS</span>
+                            <span class="badge">JavaScript</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <h4><i class="fas fa-database"></i> Bases de données & Modélisation</h4>
+                        <div class="badges">
+                            <span class="badge">Oracle</span>
+                            <span class="badge">MySQL</span>
+                            <span class="badge">PL/SQL</span>
+                            <span class="badge">UML</span>
+                            <span class="badge">Merise</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LANGUES -->
+                <div class="card">
+                    <h3 style="color: var(--primary); margin-bottom: 15px;">
+                        <i class="fas fa-language"></i> Langues
+                    </h3>
+
+                    <div class="language">
+                        <strong>Français</strong>
+                        <span>Excellent</span>
+                    </div>
+
+                    <div class="language">
+                        <strong>Anglais</strong>
+                        <span>Bon niveau</span>
+                    </div>
+
+                    <div class="language">
+                        <strong>Wolof</strong>
+                        <span>Langue maternelle</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section" id="contact">
+            <div class="cta">
+                <h2>Collaborons autour de l'IA et de l'éducation numérique</h2>
+                <p>Recherche, enseignement, projets numériques et innovation pédagogique.</p>
+                <a href="mailto:matyl.sene@unchk.edu.sn" class="btn btn-primary">
+                    <i class="fas fa-envelope"></i> Me contacter
+                </a>
+            </div>
+        </section>
 
     </div>
+</main>
 
-    <footer>
-        <p>&copy; 2026 Dr. Maty Sène. Hébergé sur GitHub Pages (matysen.github.io)</p>
-    </footer>
-</div>
+<!-- =========================
+     FOOTER
+========================= -->
 
- <!-- Widget Google Translate -->
+<footer>
+    <p>© 2026 Dre. Maty SENE — Tous droits réservés.</p>
+</footer>
+
+<!-- =========================
+     GOOGLE TRANSLATE SCRIPT
+========================= -->
+
 <script type="text/javascript">
 function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'fr',
-    includedLanguages: 'en,fr',
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-  }, 'google_translate_element');
+    new google.translate.TranslateElement({
+        pageLanguage: 'fr',
+        includedLanguages: 'fr,en',
+        autoDisplay: false
+    }, 'google_translate_element');
+}
+
+function translateLanguage(lang) {
+    var select = document.querySelector('.goog-te-combo');
+    if (select) {
+        select.value = lang;
+        select.dispatchEvent(new Event('change'));
+    }
 }
 </script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>   
+
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 </html>
