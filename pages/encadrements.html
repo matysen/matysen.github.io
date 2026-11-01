@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mémoires de Master encadrés par Dre Maty SENE">
+
+    <title>Mémoires encadrés | Dre Maty SENE</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- En-tête et menu de navigation -->
+    <header class="site-header">
+        <div class="container navbar">
+
+            <a href="../index.html" class="logo">
+                Dre Maty <span>SENE</span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                type="button"
+                aria-label="Ouvrir le menu"
+                aria-expanded="false">
+                ☰
+            </button>
+
+            <ul class="nav-menu">
+                <li>
+                    <a href="../index.html">Accueil</a>
+                </li>
+
+                <li class="has-submenu">
+                    <button class="nav-parent" type="button">
+                        À propos <span>▾</span>
+                    </button>
+                    <ul class="submenu">
+                        <li><a href="profil.html">Profil</a></li>
+                        <li><a href="parcours.html">Parcours</a></li>
+                    </ul>
+                </li>
+
+                <li class="has-submenu">
+                    <button class="nav-parent" type="button">
+                        Recherche <span>▾</span>
+                    </button>
+                    <ul class="submenu">
+                        <li><a href="recherche.html">Axes de recherche</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                    </ul>
+                </li>
+
+                <li class="has-submenu">
+                    <button class="nav-parent" type="button" aria-current="page">
+                        Activités <span>▾</span>
+                    </button>
+                    <ul class="submenu">
+                        <li><a href="projets.html">Projets</a></li>
+                        <li><a href="enseignement.html">Enseignement</a></li>
+                        <li>
+                            <a href="encadrements.html" aria-current="page">
+                                Mémoires encadrés
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="language-switch" role="group" aria-label="Choisir la langue">
+                <button class="lang-btn" data-lang="fr" type="button">FR</button>
+                <button class="lang-btn" data-lang="en" type="button">EN</button>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- En-tête de la page -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Mémoires de Master encadrés</h1>
+            <p>
+                Travaux de recherche accompagnés dans le cadre
+                de l'encadrement académique.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contenu principal -->
+    <main class="container">
+        <section class="encadrement-section">
+
+            <div class="card">
+                <h2>Liste des mémoires encadrés</h2>
+
+                <div class="table-responsive">
+                    <table class="thesis-table">
+                        <thead>
+                            <tr>
+                                <th>N°</th>
+                                <th>Année</th>
+                                <th>Étudiant(e)</th>
+                                <th>Titre du mémoire</th>
+                                <th>Formation</th>
+                                <th>Établissement</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>2020/2021</td>
+                                <td>Ibrahima SOW</td>
+                                <td>
+                                    Sécuriser un outil informatique afin d'éviter
+                                    la copie, le collage et les captures d'écran
+                                    sur l'outil lui-même et sur l'ensemble des
+                                    fichiers qu'il produit (Word, PDF, etc.).
+                                </td>
+                                <td>Systèmes et réseaux et infrastructure virtuelle</td>
+                                <td>UVS (actuelle UNCHK)</td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td>2021/2022</td>
+                                <td>Aissatou NIASS</td>
+                                <td>Banque de QCM en ligne : aspects avancés.</td>
+                                <td>Génie logiciel</td>
+                                <td>UVS (actuelle UNCHK)</td>
+                            </tr>
+
+                            <tr>
+                                <td>3</td>
+                                <td>2023/2024</td>
+                                <td>Amadou SOW</td>
+                                <td>
+                                    Développement d'une plateforme e-learning
+                                    dans le domaine de la programmation pour le
+                                    Lycée Technique André Peytavin de Saint-Louis.
+                                </td>
+                                <td>Multimédia et communication digitale</td>
+                                <td>UNCHK</td>
+                            </tr>
+
+                            <tr>
+                                <td>4</td>
+                                <td>2023/2024</td>
+                                <td>Amadou SOW</td>
+                                <td>
+                                    Transformation numérique et création
+                                    multimédia : analyse des pratiques et défis
+                                    chez NDAR MEDIAS GROUPE.
+                                </td>
+                                <td>Multimédia et communication digitale</td>
+                                <td>UNCHK</td>
+                            </tr>
+
+                            <tr>
+                                <td>5</td>
+                                <td>2025/2026</td>
+                                <td>Kehinde Nike Falilat OGUNDARE</td>
+                                <td>
+                                    Développement d'un tableau de bord intelligent
+                                    pour le suivi et l'évaluation des sujets générés.
+                                </td>
+                                <td>Génie logiciel</td>
+                                <td>UNCHK</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="site-footer">
+        <p>
+            &copy; <span data-year>2026</span> Dre Maty SENE.
+            Tous droits réservés.
+        </p>
+    </footer>
+
+</body>
+</html>
